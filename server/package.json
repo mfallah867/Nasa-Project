@@ -6,18 +6,22 @@
 	"scripts": {
 		"start": "PORT=4000 node src/server.mjs",
 		"watch": "PORT=4000 nodemon src/server.mjs",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test-watch": "NODE_OPTIONS=--experimental-vm-modules jest --watch --detectOpenHandles",
+		"test": "NODE_OPTIONS=--experimental-vm-modules jest --detectOpenHandles",
+		"cluster": "pm2 start src/server.mjs -l logs.txt -i max"
 	},
 	"author": "Mojtaba Fallah",
 	"license": "ISC",
 	"dependencies": {
 		"cors": "^2.8.5",
 		"csv-parse": "^5.3.10",
+		"dotenv": "^16.3.1",
 		"express": "^4.18.2",
+		"mongoose": "^7.2.2",
 		"morgan": "^1.10.0",
 		"nasa-application": "file:.."
 	},
 	"devDependencies": {
-		"nodemon": "^2.0.22"
+		"supertest": "^6.3.3"
 	}
 }

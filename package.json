@@ -2,17 +2,21 @@
 	"name": "nasa-application",
 	"version": "1.0.0",
 	"description": "NASA Exoplanet Explorer Project",
-	"main": "server.mjs",
+	"main": "server/src/server.mjs",
 	"scripts": {
 		"server": "cd server && npm start",
 		"client": "cd client && npm start",
 		"start": "npm run server & npm run client",
-		"watch": "npm run watch --prefix server & npm run start --prefix client",
+		"watch": "npm run build --prefix client & npm run watch --prefix server",
 		"install": "npm install --prefix server && npm install --prefix client",
 		"fix": "npm audit fix --prefix server && npm audit fix --prefix client",
 		"test": "npm test --prefix server && npm test --prefix client",
-		"deploy": "npm run build --prefix client && npm run start --prefix server"
+		"deploy": "npm run build --prefix client && npm run start --prefix server",
+		"deploy-cluster": "npm run build --prefix client && npm run cluster --prefix server"
 	},
 	"author": "Mojtaba Fallah",
-	"license": "ISC"
+	"license": "ISC",
+	"dependencies": {
+		"axios": "^1.4.0"
+	}
 }
